@@ -1,13 +1,35 @@
 import "./App.css";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const name = "Awdiz";
+  const location = "Vashi";
+  const headerStyle = {
+    color: "blue",
+  };
+  const buttonStyle = {
+    color: "red",
+  };
   return (
-    <p className="read-the-docs">
-      Click on the Vite and React logos to learn more
-    </p>
+    <>
+      <Navbar title="My App" role="admin" />
+      <Navbar title="Another App" role="user" />
+      <Navbar title="Yet Another App" role="guest" />
+      <h1 style={headerStyle}>
+        Welcome to {name}, {location}.
+      </h1>
+      <button style={buttonStyle}>Click me</button>
+      <p style={{ color: "red", fontSize: "32px", backgroundColor: "yellow" }}>
+        Welcome to {name}, {location}.
+      </p>
+      <button style={buttonStyle}>Click me</button>
+      <button className="butttonStyle">Styling from external css file</button>
+      <Footer />
+      <Footer />
+      <Footer />
+    </>
   );
 }
 
 export default App;
-
-
