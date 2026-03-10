@@ -1,6 +1,7 @@
 import "./App.css";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from "./components/Footer.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Day3 from "./pages/Day-3 usestate/Day3.jsx";
 
 function App() {
   const name = "Awdiz";
@@ -13,7 +14,7 @@ function App() {
   };
   return (
     <>
-      <Navbar title="My App" role="admin" />
+      {/* <Navbar title="My App" role="admin" />
       <Navbar title="Another App" role="user" />
       <Navbar title="Yet Another App" role="guest" />
       <h1 style={headerStyle}>
@@ -27,7 +28,8 @@ function App() {
       <button className="butttonStyle">Styling from external css file</button>
       <Footer />
       <Footer />
-      <Footer />
+      <Footer /> */}
+      <Day3 />
     </>
   );
 }
