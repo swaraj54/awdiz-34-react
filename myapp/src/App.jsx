@@ -2,6 +2,8 @@ import "./App.css";
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Day3 from "./pages/Day-3 usestate/Day3.jsx";
+import Day4 from "./pages/Day-4 events/Day4.jsx";
+import Login from "./pages/ProjectPages/Login.jsx";
 
 function App() {
   const name = "Awdiz";
@@ -29,7 +31,9 @@ function App() {
       <Footer />
       <Footer />
       <Footer /> */}
-      <Day3 />
+      {/* <Day3 /> */}
+      {/* <Day4 /> */}
+      <Login />
     </>
   );
 }

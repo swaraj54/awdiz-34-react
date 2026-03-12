@@ -2,7 +2,8 @@ import { useState } from "react";
 
 function Day3() {
   const [counter, setCounter] = useState(1);
-  console.log(counter, "coutner");
+  // console.log(counter, "coutner");
+  console.log("Component Rerendered.");
   function Increment() {
     if (counter <= 9) {
       setCounter(counter + 1);
