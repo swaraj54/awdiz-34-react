@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 function Products() {
   const [fakeProducts, setfakeProducts] = useState([]);
+  const router = useNavigate();
 
   async function getProducts() {
     const response = await axios.get("https://fakestoreapi.com/products");
@@ -22,6 +24,9 @@ function Products() {
         >
           {fakeProducts.map((singleProductObject) => (
             <div
+              onClick={() =>
+                router(`/single-product/${singleProductObject.id}`)
+              }
               style={{
                 paddding: "10px",
                 width: "18%",
@@ -29,6 +34,7 @@ function Products() {
                 border: "1px solid black",
                 borderRadius: "10px",
                 marginBottom: "20px",
+                cursor: "pointer",
               }}
             >
               <img
