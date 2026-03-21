@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 function Products() {
   const [loading, setLoading] = useState(null);
@@ -19,6 +19,10 @@ function Products() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div>

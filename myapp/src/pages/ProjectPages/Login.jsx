@@ -15,8 +15,11 @@ function Login() {
   }
   async function handleSubmit(event) {
     try {
+      if(!userData?.email || !userData?.password ){
+        return alert("All fields are required.")
+      }
       event.preventDefault();
-    //   const response = await axios.post("/login", userData);
+      // const response = await axios.post("/login", userData);
     //   console.log(response, "response");
     } catch (error) {
       console.log(error, "error");
