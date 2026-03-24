@@ -5,9 +5,9 @@ const Day8 = () => {
   console.log("Component rerednered.");
   const [counter2, setCounter2] = useState(12);
 
-  //   const output = lengthyOperation(counter);
+    // const output = lengthyOperation(counter);
   const output = useMemo(() => lengthyOperation(counter), [counter]);
-  //   useMemo - it cache value
+    // useMemo - it cache value in between re-renders 
 
   return (
     <div>

@@ -10,6 +10,7 @@ import Day6 from "./pages/Day-6 useeffect/Day6";
 import Day7 from "./pages/Day7 conditional rendering/Day7";
 import Day8 from "./pages/Day-8 usememo usecallback/Day8";
 import UseCallback from "./pages/Day-8 usememo usecallback/UseCallback";
+import UseRef from "./pages/Day-9/UseRef";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/day-7" element={<Day7 />} />
         <Route path="/day-8" element={<Day8 />} />
         <Route path="/use-callback" element={<UseCallback />} />
+        <Route path="/use-ref" element={<UseRef />} />
       </Routes>
       <Footer />
     </>
@@ -37,10 +39,16 @@ export default App;
 // useEffect
 // useParams
 // useNavigate
-
 // useMemo - hook
 // memo() - method
 // useCallback
 // useRef
+
+
 // useReducer
 // useContext
+// Context - global data management - useReducer + useContext
+
+
+
+// Redux - global data management
