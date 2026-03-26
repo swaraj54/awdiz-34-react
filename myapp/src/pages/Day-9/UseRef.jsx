@@ -5,9 +5,11 @@ const UseRef = () => {
   const [name, setName] = useState("");
   console.log("Component re-render..");
 
-  const data = useRef(8765);
+  const data = useRef(8);
   console.log(data, "data");
   
+  // const myObj = {name :"awdiz"}
+  // myObj.name = "My name"
   return (
     <div>
       <h1>Counter : {counter}</h1>

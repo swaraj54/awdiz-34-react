@@ -11,6 +11,7 @@ import Day7 from "./pages/Day7 conditional rendering/Day7";
 import Day8 from "./pages/Day-8 usememo usecallback/Day8";
 import UseCallback from "./pages/Day-8 usememo usecallback/UseCallback";
 import UseRef from "./pages/Day-9/UseRef";
+import UseReducer from "./pages/Day-10/UseReducer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/day-8" element={<Day8 />} />
         <Route path="/use-callback" element={<UseCallback />} />
         <Route path="/use-ref" element={<UseRef />} />
+        <Route path="/use-reducer" element={<UseReducer />} />
       </Routes>
       <Footer />
     </>
@@ -46,8 +48,10 @@ export default App;
 
 
 // useReducer
+
+
 // useContext
-// Context - global data management - useReducer + useContext
+// Context api - global data management - useReducer + useContext
 
 
 
