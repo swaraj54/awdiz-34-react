@@ -12,6 +12,7 @@ import Day8 from "./pages/Day-8 usememo usecallback/Day8";
 import UseCallback from "./pages/Day-8 usememo usecallback/UseCallback";
 import UseRef from "./pages/Day-9/UseRef";
 import UseReducer from "./pages/Day-10/UseReducer";
+import ContextCounter from "./pages/Day-11/ContextCounter";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/use-callback" element={<UseCallback />} />
         <Route path="/use-ref" element={<UseRef />} />
         <Route path="/use-reducer" element={<UseReducer />} />
+        <Route path="/context-counter" element={<ContextCounter />} />
       </Routes>
       <Footer />
     </>
@@ -45,14 +47,10 @@ export default App;
 // memo() - method
 // useCallback
 // useRef
-
-
 // useReducer
-
-
 // useContext
 // Context api - global data management - useReducer + useContext
 
 
 
-// Redux - global data management
+// Redux - global data management = 80%

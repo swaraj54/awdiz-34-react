@@ -18,6 +18,7 @@ const UseCallback = () => {
       <h1>Counter : {counter}</h1>
       <button onClick={() => setCounter(counter + 1)}>+</button>
       <ChildComponent
+      
         handleClick2={handleClick2}
         counter2={counter2}
         // setCounter2={setCounter2}
