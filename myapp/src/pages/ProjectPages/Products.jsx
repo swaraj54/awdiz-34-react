@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import api from "../../config/axiosConfig";
 function Products() {
   const [loading, setLoading] = useState(null);
   const [fakeProducts, setfakeProducts] = useState([]);
@@ -10,6 +11,10 @@ function Products() {
     try {
       setLoading(true);
       // const response = await axios.get("https://fakestoreapi.com/products");
+      // const response = await api.get("/products/get-all-products");
+      // const response = await api.get("/products/single-product/1");
+      // const response = await api.get("/auth/login");
+      // const response = await api.get("/auth/register");
       const response = { data: [] };
       console.log(response.data, "response");
       setfakeProducts(response.data);

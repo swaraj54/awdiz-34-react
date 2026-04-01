@@ -14,6 +14,7 @@ import UseRef from "./pages/Day-9/UseRef";
 import UseReducer from "./pages/Day-10/UseReducer";
 import ContextCounter from "./pages/Day-11/ContextCounter";
 import ReduxCounter from "./pages/Day-12/ReduxCounter";
+import Register from "./pages/ProjectPages/Register";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/products" element={<Products />} />
         <Route path="/single-product/:id" element={<SingleProduct />} />
 

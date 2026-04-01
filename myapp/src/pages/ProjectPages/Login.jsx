@@ -1,6 +1,10 @@
 import { useState } from "react";
+import api from "../../config/axiosConfig";
+import { login } from "../../redux/authSlice";
+import { useDispatch } from "react-redux";
 
 function Login() {
+  const dispatch = useDispatch();
   const [userData, setUserData] = useState({ email: "", password: "" });
   console.log(userData, "userData");
   function handleChange(event) {
@@ -15,12 +19,19 @@ function Login() {
   }
   async function handleSubmit(event) {
     try {
-      if(!userData?.email || !userData?.password ){
-        return alert("All fields are required.")
+      if (!userData?.email || !userData?.password) {
+        return alert("All fields are required.");
       }
       event.preventDefault();
-      // const response = await axios.post("/login", userData);
-    //   console.log(response, "response");
+      // const response = await axios.post("http://localhost:8000/login", userData);
+
+      // const response = await api.post("/login", userData);
+
+      // console.log(response, "response");
+      // if (response?.data?.success) {
+      //   alert(response?.data?.message);
+      //   dispatch(login(response?.data?.user));
+      // }
     } catch (error) {
       console.log(error, "error");
     }
