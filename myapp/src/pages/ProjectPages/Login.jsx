@@ -25,13 +25,13 @@ function Login() {
       event.preventDefault();
       // const response = await axios.post("http://localhost:8000/login", userData);
 
-      // const response = await api.post("/login", userData);
+      const response = await api.post("/login", userData);
 
-      // console.log(response, "response");
-      // if (response?.data?.success) {
-      //   alert(response?.data?.message);
-      //   dispatch(login(response?.data?.user));
-      // }
+      console.log(response, "response");
+      if (response?.data?.success) {
+        alert(response?.data?.message);
+        dispatch(login(response?.data?.user));
+      }
     } catch (error) {
       console.log(error, "error");
     }
