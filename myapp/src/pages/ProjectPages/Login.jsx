@@ -25,7 +25,7 @@ function Login() {
       event.preventDefault();
       // const response = await axios.post("http://localhost:8000/login", userData);
 
-      const response = await api.post("/login", userData);
+      const response = await api.post("/auth/login", userData);
 
       console.log(response, "response");
       if (response?.data?.success) {
@@ -33,7 +33,8 @@ function Login() {
         dispatch(login(response?.data?.user));
       }
     } catch (error) {
-      console.log(error, "error");
+      console.log(error.response.data.message, "error");
+      alert(error?.response?.data?.message);
     }
   }
   return (
