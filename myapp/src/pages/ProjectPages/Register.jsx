@@ -3,6 +3,7 @@ import api from "../../config/axiosConfig";
 import { login } from "../../redux/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 function Register() {
   const router = useNavigate();
@@ -32,7 +33,7 @@ function Register() {
         !userData?.name ||
         !userData?.role
       ) {
-        return alert("All fields are required.");
+        return toast.error("All fields are required.");
       }
       event.preventDefault();
       // const response = await axios.post("http://localhost:8000/login", userData);
@@ -41,12 +42,12 @@ function Register() {
 
       console.log(response, "response");
       if (response?.data?.success) {
-        alert(response?.data?.message);
+        toast.success(response?.data?.message);
         router("/login");
       }
     } catch (error) {
       console.log(error.response.data.message, "error");
-      alert(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message);
     }
   }
   return (

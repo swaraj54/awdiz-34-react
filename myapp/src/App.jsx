@@ -16,8 +16,31 @@ import ContextCounter from "./pages/Day-11/ContextCounter";
 import ReduxCounter from "./pages/Day-12/ReduxCounter";
 import Register from "./pages/ProjectPages/Register";
 import Todo from "./pages/Day-14/Todo";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import api from "./config/axiosConfig";
+import { login } from "./redux/authSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.auth.user);
+  console.log(userData, "userData");
+  const getCurrentUser = async () => {
+    try {
+      const response = await api.get("/auth/get-current-user");
+      console.log(response.data, "Current User Data");
+      if (response.data.success) {
+        dispatch(login(response?.data?.user));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (!userData) {
+      getCurrentUser();
+    }
+  }, [userData]);
   return (
     <>
       <Navbar />

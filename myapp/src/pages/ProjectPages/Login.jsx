@@ -2,8 +2,11 @@ import { useState } from "react";
 import api from "../../config/axiosConfig";
 import { login } from "../../redux/authSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 function Login() {
+  const router = useNavigate();
   const dispatch = useDispatch();
   const [userData, setUserData] = useState({ email: "", password: "" });
   console.log(userData, "userData");
@@ -20,7 +23,7 @@ function Login() {
   async function handleSubmit(event) {
     try {
       if (!userData?.email || !userData?.password) {
-        return alert("All fields are required.");
+        return toast.error("All fields are required.");
       }
       event.preventDefault();
       // const response = await axios.post("http://localhost:8000/login", userData);
@@ -29,12 +32,13 @@ function Login() {
 
       console.log(response, "response");
       if (response?.data?.success) {
-        alert(response?.data?.message);
+        toast.success(response?.data?.message);
         dispatch(login(response?.data?.user));
+        router("/");
       }
     } catch (error) {
       console.log(error.response.data.message, "error");
-      alert(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message);
     }
   }
   return (

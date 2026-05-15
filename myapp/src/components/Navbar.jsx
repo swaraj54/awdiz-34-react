@@ -1,7 +1,26 @@
 import { Link, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/authSlice";
+import api from "../config/axiosConfig";
+import toast from "react-hot-toast";
 
 function Navbar() {
   const router = useNavigate();
+  const userData = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
+  const Logout = async () => {
+    try {
+      const response = await api.get("/auth/logout");
+      if (response.data.success) {
+        toast.success("Logout successful");
+        dispatch(logout());
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Logout failed");
+    }
+  };
 
   return (
     <div
@@ -53,13 +72,18 @@ function Navbar() {
           justifyContent: "space-around",
         }}
       >
-        <Link style={{ cursor: "pointer" }} to="/login">
-          Login
-        </Link>
-        <Link style={{ cursor: "pointer" }} to="/register">
-          Register
-        </Link>
-        <button>Logout</button>
+        {userData && <h4>Hi, {userData?.name}</h4>}
+        {userData && <button onClick={Logout}>Logout</button>}
+        {!userData && (
+          <Link style={{ cursor: "pointer" }} to="/login">
+            Login
+          </Link>
+        )}
+        {!userData && (
+          <Link style={{ cursor: "pointer" }} to="/register">
+            Register
+          </Link>
+        )}
       </div>
     </div>
   );

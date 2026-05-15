@@ -1,14 +1,12 @@
-import { useContext } from "react";
-import { CounterContext } from "../../contexts/counterContext";
+import { useSelector } from "react-redux";
 
 function Home() {
-  const { counter, setCounter } = useContext(CounterContext);
+  const userData = useSelector((state) => state.auth.user);
+  console.log(userData,"userData")
   return (
     <div>
-      <h1>Counter from Context : {counter}</h1>
-      <button onClick={() => setCounter(counter + 1)}>+</button>
-      <button onClick={() => setCounter(counter - 1)}>-</button>
-      <button onClick={() => setCounter(1)}>Reset</button>
+      <h1>Welcome to Home</h1>
+      <p>Hello, {userData?.name}!</p>
     </div>
   );
 }
