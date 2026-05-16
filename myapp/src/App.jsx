@@ -20,6 +20,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import api from "./config/axiosConfig";
 import { login } from "./redux/authSlice";
+import Profile from "./pages/ProjectPages/Profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
   };
   useEffect(() => {
     if (!userData) {
+      // no data in redux
       getCurrentUser();
     }
   }, [userData]);
@@ -50,6 +52,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<Products />} />
         <Route path="/single-product/:id" element={<SingleProduct />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/day-6" element={<Day6 />} />
         <Route path="/day-7" element={<Day7 />} />

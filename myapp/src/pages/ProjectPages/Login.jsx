@@ -8,7 +8,10 @@ import toast from "react-hot-toast";
 function Login() {
   const router = useNavigate();
   const dispatch = useDispatch();
-  const [userData, setUserData] = useState({ email: "", password: "" });
+  const [userData, setUserData] = useState({
+    email: "user8@gmail.com",
+    password: "Pass@123",
+  });
   console.log(userData, "userData");
   function handleChange(event) {
     // console.log(event.target.value, "value");
@@ -53,6 +56,7 @@ function Login() {
           required
           type="email"
           placeholder="abc@gmail.com"
+          value={userData.email}
         />{" "}
         <br />
         <label>Password - {userData.password}</label>
@@ -63,6 +67,7 @@ function Login() {
           required
           type="password"
           placeholder="Enter your password."
+          value={userData.password}
         />{" "}
         <br />
         <input type="submit" value="Login" />

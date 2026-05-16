@@ -73,6 +73,7 @@ function Navbar() {
         }}
       >
         {userData && <h4>Hi, {userData?.name}</h4>}
+        {userData && <h4 onClick={() => router("/profile")}>Profile</h4>}
         {userData && <button onClick={Logout}>Logout</button>}
         {!userData && (
           <Link style={{ cursor: "pointer" }} to="/login">
