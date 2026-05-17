@@ -21,6 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import api from "./config/axiosConfig";
 import { login } from "./redux/authSlice";
 import Profile from "./pages/ProjectPages/Profile";
+import AddProducts from "./pages/ProjectPages/seller/AddProducts";
+import GetAddedProducts from "./pages/ProjectPages/seller/GetAddedProducts";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,12 +49,19 @@ function App() {
     <>
       <Navbar />
       <Routes>
+        {/* Common routes  */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* User routes  */}
         <Route path="/products" element={<Products />} />
         <Route path="/single-product/:id" element={<SingleProduct />} />
         <Route path="/profile" element={<Profile />} />
+
+        {/* Seller routes  */}
+        <Route path="/add-products" element={<AddProducts />} />
+        <Route path="/get-added-products" element={<GetAddedProducts />} />
 
         <Route path="/day-6" element={<Day6 />} />
         <Route path="/day-7" element={<Day7 />} />

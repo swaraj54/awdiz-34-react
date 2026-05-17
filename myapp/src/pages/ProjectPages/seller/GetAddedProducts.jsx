@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import api from "../../config/axiosConfig";
+import api from "../../../config/axiosConfig";
 
-const Products = () => {
+const GetAddedProducts = () => {
   const [products, setProducts] = useState([]);
   const getSellerAddedProduct = async () => {
     try {
@@ -116,4 +116,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default GetAddedProducts;

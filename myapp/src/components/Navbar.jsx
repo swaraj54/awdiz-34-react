@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 function Navbar() {
   const router = useNavigate();
   const userData = useSelector((state) => state.auth.user);
+  console.log(userData, "userData");
   const dispatch = useDispatch();
 
   const Logout = async () => {
@@ -15,6 +16,7 @@ function Navbar() {
       if (response.data.success) {
         toast.success("Logout successful");
         dispatch(logout());
+        router("/login");
       }
     } catch (error) {
       console.log(error);
@@ -51,18 +53,52 @@ function Navbar() {
           justifyContent: "space-around",
         }}
       >
-        <h4 style={{ cursor: "pointer" }} onClick={() => router("/products")}>
-          Men
-        </h4>
-        <h4 style={{ cursor: "pointer" }} onClick={() => router("/products")}>
-          Women
-        </h4>
-        <h4 style={{ cursor: "pointer" }} onClick={() => router("/products")}>
-          Kids
-        </h4>
-        <h4 style={{ cursor: "pointer" }} onClick={() => router("/products")}>
-          Home
-        </h4>
+        {userData?.role == "user" && (
+          <>
+            <h4
+              style={{ cursor: "pointer" }}
+              onClick={() => router("/products")}
+            >
+              Men
+            </h4>
+            <h4
+              style={{ cursor: "pointer" }}
+              onClick={() => router("/products")}
+            >
+              Women
+            </h4>
+            <h4
+              style={{ cursor: "pointer" }}
+              onClick={() => router("/products")}
+            >
+              Kids
+            </h4>
+            <h4
+              style={{ cursor: "pointer" }}
+              onClick={() => router("/products")}
+            >
+              Home
+            </h4>
+          </>
+        )}
+
+        {userData?.role == "seller" && (
+          <>
+            <h4
+              style={{ cursor: "pointer" }}
+              onClick={() => router("/add-products")}
+            >
+              Add Product
+            </h4>
+
+            <h4
+              style={{ cursor: "pointer" }}
+              onClick={() => router("/get-added-products")}
+            >
+              View Product
+            </h4>
+          </>
+        )}
       </div>
       <div
         style={{
